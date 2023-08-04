@@ -3,7 +3,17 @@ import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import frameImg from "../assets/frame.png";
 
-const Template = ( title, desc1, desc2, formtype, Image, setIsLogedIn ) => {
+// const Template = ( title, desc1, desc2, formType, Image, setIsLogedIn ) => {
+
+const Template = ( props ) => {
+
+   let title = props.title;
+   let desc1 = props.desc1;
+   let desc2 = props.desc2;
+   let formType = props.formType;
+   let image = props.image;
+   let setIsLogedIn = props.setIsLogedIn;
+
     return (
         <div>
            <div>
@@ -15,7 +25,7 @@ const Template = ( title, desc1, desc2, formtype, Image, setIsLogedIn ) => {
              </p>
 
              {
-                 formtype === "signup" ? (<LoginForm />) : ( <SignupForm />)
+                 formType === "signup" ? (<LoginForm setIsLogedIn = {setIsLogedIn}/>) : ( <SignupForm setIsLogedIn = {setIsLogedIn}/>)
              }
 
              <div>
@@ -40,7 +50,8 @@ const Template = ( title, desc1, desc2, formtype, Image, setIsLogedIn ) => {
               </div>
 
               <div>
-                <img src={Image}
+                <img 
+                   src={image}
                    alt="student"
                    width={558}
                    height={500}

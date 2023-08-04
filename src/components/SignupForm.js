@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/fa";
+import { Link } from "react-router-dom";
+// import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/fa";
 
-const SignupForm = () => {
+const SignupForm = ({setIsLogedIn}) => {
 
     const[showPassword, setShowPassword] = useState(false)
 
@@ -14,14 +15,18 @@ const SignupForm = () => {
     })
 
     const inputChangeHandaler = (event) => {
-        setFormData( (prevData) = (
+        setFormData( (previous) => (
             {
-                ...prevData,
-                [event.target.name]: event.target.value
+                ...previous,
+                [event.target.name]: event.target.name
             }
-        ))
+        ))   
     }
 
+    const formSubmitHandaler = () => {
+
+    } 
+    
     return (
         <div>
             <div>
@@ -32,7 +37,7 @@ const SignupForm = () => {
                 </div>
 
                 {/* All Form Details */}
-                <form>
+                <form onSubmit={formSubmitHandaler}>
                     {/* First name Ans Last Name */}
                     <div>
                         <label>
@@ -86,11 +91,11 @@ const SignupForm = () => {
                                 type={ showPassword ? ("text") : ("password")}
                                 value={formData.createPassword}
                                 onChange={inputChangeHandaler}
-                            >
+                            />
                                 <span onClick={() => setShowPassword( (prev) => !prev)}>
-                                    {showPassword ? (<AiOutlineEyeInvisible />) : (<AiOutlineEye />)}
+                                    {/* {showPassword ? (<AiOutlineEyeInvisible />) : (<AiOutlineEye />)} */}
+                                    eye
                                 </span>
-                            </input>
                         </label>
 
                         <label>
@@ -102,20 +107,20 @@ const SignupForm = () => {
                                 type={showPassword ? ("text") : ("password")}
                                 value={formData.conformPassword}
                                 onChange={inputChangeHandaler}
-                            >
+                            />
                                 <span onClick={ () => setShowPassword( (prev) => !prev)}>
-                                    {showPassword ? (<AiOutlineEyeInvisible />) : (<AiOutlineEye />)}
+                                    {/* {showPassword ? (<AiOutlineEyeInvisible />) : (<AiOutlineEye />)} */}
+                                    eye
                                 </span>
-                            </input>
                         </label>
                     </div>
+                    <Link to="#">
+                        <button>
+                        Create Account
+                        </button>
+                    </Link>
                 </form>
                  
-                <Link to="#">
-                    <button>
-                       Create Account
-                    </button>
-                </Link>
             </div>
         </div>
     )

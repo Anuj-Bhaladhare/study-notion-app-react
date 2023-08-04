@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { toast } from "react-hot-toast";
+// import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
 
-const LoginForm = () => {
+const LoginForm = ({setIsLogedIn}) => {
+
+    const navigatePage = useNavigate()
 
     const[showPassword, setShowPassword] = useState(false)
 
@@ -19,10 +22,17 @@ const LoginForm = () => {
             }
         ))   
     }
+ 
+    const formSubmitHandaler = (event) => {
+       event.preventDefault();
+       setIsLogedIn(true);
+       toast.success("Loged In Success");
+       navigatePage("/dashboard");
+    }
 
     return (
         <div>
-            <form>
+            <form onSubmit={formSubmitHandaler}>
                 <label>
                     <p>Enter your email <sup>*</sup></p>
                     <input 
@@ -43,22 +53,22 @@ const LoginForm = () => {
                       placeholder="Password"
                       value={formData.password}
                       onChange={inputChangeHandaler}
-                      >
+                      />
 
                        <span onClick={ () => setShowPassword((prev) => !prev)}>
-                          {showPassword ? (<AiOutlineEyeInvisible /> ) : (<AiOutlineEye />)}
+                          {/* {showPassword ? (<AiOutlineEyeInvisible /> ) : (<AiOutlineEye />)} */}
+                          eye
                       </span>
-                      </input>
                       <Link to="#">
                          <p>Forgot Password</p>
                       </Link>
                 </label>
+                <Link to="#">
+                    <button>
+                        Log In
+                    </button>
+                </Link>
             </form>
-            <div>
-                <button>
-                    Log In
-                </button>
-            </div>
         </div>
     )
 }

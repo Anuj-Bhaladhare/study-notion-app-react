@@ -15,14 +15,14 @@ function App() {
   return (
     <div>
       <div>
-        <Navbar isLogedIn={isLogedIn} setIsLogedIn={setIsLogedIn}/>
+        <Navbar isLogedIn={isLogedIn} setIsLogedIn = {setIsLogedIn}/>
       </div>
       <div>
       <Routes>
 
         <Route path="/" element= {<Home/>} />
-        <Route path="/login" element = {<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element = {<Login setIsLogedIn = {setIsLogedIn}/>} />
+        <Route path="/signup" element={<Signup setIsLogedIn = {setIsLogedIn}/>} />
         <Route path="/dashboard" element = {<Dashboard/>} />
 
       </Routes>
