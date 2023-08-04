@@ -39,16 +39,16 @@ const Navbar = (props) => {
                  </NavLink>
               }
               {  isLogedIn &&
-                 <NavLink to="/dashboard">
-                    <button>Dashboard</button>
+                 <NavLink to="/">
+                    <button  onClick={ () => {
+                       setIsLogedIn(false);
+                       toast.success("Loged Out");
+                     }}>Log Out</button>
                  </NavLink>
               }
               {  isLogedIn &&
-                 <NavLink to="/">
-                    <button  onClick={ () => {
-                      setIsLogedIn(false);
-                      toast.success("Loged Out");
-                    }}>Log Out</button>
+                 <NavLink to="/dashboard">
+                    <button>Dashboard</button>
                  </NavLink>
               }
            </div>

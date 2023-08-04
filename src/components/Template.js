@@ -25,7 +25,9 @@ const Template = ( props ) => {
              </p>
 
              {
-                 formType === "signup" ? (<LoginForm setIsLogedIn = {setIsLogedIn}/>) : ( <SignupForm setIsLogedIn = {setIsLogedIn}/>)
+                 formType === "signup" ? 
+                 (<LoginForm setIsLogedIn = {setIsLogedIn}/>) : 
+                 ( <SignupForm setIsLogedIn = {setIsLogedIn}/>)
              }
 
              <div>
