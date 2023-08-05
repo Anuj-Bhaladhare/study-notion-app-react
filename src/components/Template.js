@@ -16,7 +16,7 @@ const Template = ( props ) => {
    let setIsLogedIn = props.setIsLogedIn;
 
     return (
-        <div className="bg-[#1c1c1c] text-white flex flex-wrap justify-around p-6">
+        <div className="bg-[#1c1c1c] text-white flex flex-wrap justify-around h-full p-6">
            <div className="max-w-[50%]">
              <h1 className="font-bold text-[2rem]">{title}</h1>
 
@@ -45,7 +45,7 @@ const Template = ( props ) => {
              </div>
            </div>
 
-           <div className="relative max-w-[50%]">
+           <div className="relative max-w-[50%] pt-[8rem]">
 
               <div className="">
                 <img src={frameImg}

@@ -47,19 +47,19 @@ const SignupForm = ({setIsLogedIn}) => {
     } 
     
     return (
-        <div>
-            <div>
+        <div >
+            <div className="flex justify-center flex-col items-center gap-5">
                 {/* Two Button for Student or  Instructor*/}
-                <div>
+                <div className="flex justify-center gap-5 font-bold text-[1.2rem]">
                     <button>Student</button>
                     <button>Instructor</button>
                 </div>
 
                 {/* All Form Details */}
-                <form onSubmit={formSubmitHandaler}>
+                <form onSubmit={formSubmitHandaler} className="flex flex-col gap-4 justify-center items-center">
                     {/* First name Ans Last Name */}
-                    <div>
-                        <label>
+                    <div className="flex gap-3 flex-col">
+                        <label className="">
                             <p>First Name<sup>*</sup></p>
                             <input 
                             required
@@ -68,6 +68,7 @@ const SignupForm = ({setIsLogedIn}) => {
                             type="text"
                             value={formData.firstName}
                             onChange={inputChangeHandaler}
+                            className="w-[28rem] rounded-md border border-blue-600 p-2 "
                             />
                         </label>
 
@@ -80,6 +81,7 @@ const SignupForm = ({setIsLogedIn}) => {
                             type="text"
                             value={formData.lastName}
                             onChange={inputChangeHandaler}
+                            className="w-[28rem] rounded-md border border-blue-600 p-2 "
                             />
                         </label>
                     </div>
@@ -95,12 +97,13 @@ const SignupForm = ({setIsLogedIn}) => {
                                 type="email"
                                 value={formData.email}
                                 onChange={inputChangeHandaler}
+                                className="w-[28rem] rounded-md border border-blue-600 p-2 "
                             />
                         </label>
                     </div>
 
                     {/* Create PassWord And Conform Password */}
-                    <div>
+                    <div className="flex gap-3">
                         <label>
                             <p>Create PassWord<sup>*</sup></p>
                             <input 
@@ -110,6 +113,7 @@ const SignupForm = ({setIsLogedIn}) => {
                                 type={ showPassword1 ? ("text") : ("password")}
                                 value={formData.createPassword}
                                 onChange={inputChangeHandaler}
+                                className="w-[13.2rem] rounded-md border border-blue-600 p-2 "
                             />
                                 <button onClick={() => setShowPassword1( (prev1) => !prev1)}>
                                     {showPassword1 ? (<AiOutlineEyeInvisible />) : (<AiOutlineEye />)}
@@ -125,13 +129,14 @@ const SignupForm = ({setIsLogedIn}) => {
                                 type={showPassword2 ? ("text") : ("password")}
                                 value={formData.conformPassword}
                                 onChange={inputChangeHandaler}
+                                className="w-[13.2rem] rounded-md border border-blue-600 p-2 "
                             />
                                 <button onClick={ () => setShowPassword2( (prev2) => !prev2)}>
                                     {showPassword2 ? (<AiOutlineEyeInvisible />) : (<AiOutlineEye />)}
                                 </button>
                         </label>
                     </div>
-                    <button>
+                    <button className="bg-blue-400 text-white font-bold p-2 rounded-md mt-7 w-[25rem]">
                     Create Account
                     </button>
                 </form>

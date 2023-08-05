@@ -28,7 +28,7 @@ const LoginForm = ({ setIsLogedIn }) => {
   }
 
   return (
-    <form onSubmit={formSubmitHandaler}>
+    <form onSubmit={formSubmitHandaler} className="flex justify-center flex-col items-center gap-5">
       <label>
         <p>
           Enter your email <sup>*</sup>
@@ -40,6 +40,7 @@ const LoginForm = ({ setIsLogedIn }) => {
           placeholder="abcd@gmail.com"
           value={formData.email}
           onChange={inputChangeHandaler}
+          className="w-[28rem] rounded-md border border-blue-600 p-2 "
         />
       </label>
       <label>
@@ -53,6 +54,7 @@ const LoginForm = ({ setIsLogedIn }) => {
           placeholder="Password"
           value={formData.password}
           onChange={inputChangeHandaler}
+          className="w-[28rem] rounded-md border border-blue-600 p-2 "
         />
 
         <span onClick={() => setShowPassword((prev) => !prev)}>
@@ -62,7 +64,7 @@ const LoginForm = ({ setIsLogedIn }) => {
           <p>Forgot Password</p>
         </Link>
       </label>
-      <button>Log In</button>
+      <button className="bg-blue-400 text-white font-bold p-2 rounded-md mt-7 w-[25rem]">Log In</button>
     </form>
   );
 };

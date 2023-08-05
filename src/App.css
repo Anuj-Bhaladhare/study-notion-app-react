@@ -2,3 +2,7 @@
 .active {
     font-weight: bold;
 }
+
+sup{
+    color: red;
+}
