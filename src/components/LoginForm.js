@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
-// import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/fa";
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 
 const LoginForm = ({ setIsLogedIn }) => {
@@ -56,8 +56,7 @@ const LoginForm = ({ setIsLogedIn }) => {
         />
 
         <span onClick={() => setShowPassword((prev) => !prev)}>
-          {/* {showPassword ? (<AiOutlineEyeInvisible /> ) : (<AiOutlineEye />)} */}
-          eye
+          {showPassword ? (<AiOutlineEyeInvisible /> ) : (<AiOutlineEye />)}
         </span>
         <Link to="#">
           <p>Forgot Password</p>

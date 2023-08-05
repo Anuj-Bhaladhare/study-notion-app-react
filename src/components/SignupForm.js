@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-// import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/fa";
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 
 const SignupForm = ({setIsLogedIn}) => {
 
@@ -16,7 +15,8 @@ const SignupForm = ({setIsLogedIn}) => {
         conformPassword:""
     })
 
-    const[showPassword, setShowPassword] = useState(false)
+    const[showPassword1, setShowPassword1] = useState(false)
+    const[showPassword2, setShowPassword2] = useState(false)
 
     const inputChangeHandaler = (event) => {
 
@@ -107,14 +107,13 @@ const SignupForm = ({setIsLogedIn}) => {
                                 required
                                 name="createPassword"
                                 placeholder="passsword"
-                                type={ showPassword ? ("text") : ("password")}
+                                type={ showPassword1 ? ("text") : ("password")}
                                 value={formData.createPassword}
                                 onChange={inputChangeHandaler}
                             />
-                                <span onClick={() => setShowPassword( (prev) => !prev)}>
-                                    {/* {showPassword ? (<AiOutlineEyeInvisible />) : (<AiOutlineEye />)} */}
-                                    eye
-                                </span>
+                                <button onClick={() => setShowPassword1( (prev1) => !prev1)}>
+                                    {showPassword1 ? (<AiOutlineEyeInvisible />) : (<AiOutlineEye />)}
+                                </button>
                         </label>
 
                         <label>
@@ -123,14 +122,13 @@ const SignupForm = ({setIsLogedIn}) => {
                                 required
                                 name="conformPassword"
                                 placeholder="passsword"
-                                type={showPassword ? ("text") : ("password")}
+                                type={showPassword2 ? ("text") : ("password")}
                                 value={formData.conformPassword}
                                 onChange={inputChangeHandaler}
                             />
-                                <span onClick={ () => setShowPassword( (prev) => !prev)}>
-                                    {/* {showPassword ? (<AiOutlineEyeInvisible />) : (<AiOutlineEye />)} */}
-                                    eye
-                                </span>
+                                <button onClick={ () => setShowPassword2( (prev2) => !prev2)}>
+                                    {showPassword2 ? (<AiOutlineEyeInvisible />) : (<AiOutlineEye />)}
+                                </button>
                         </label>
                     </div>
                     <button>
